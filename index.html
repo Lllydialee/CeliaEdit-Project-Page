@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>YourProject: Unified Generation & Editing</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+
+<body>
+  <!-- Top Nav (optional) -->
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand">YourProject</div>
+      <nav class="nav">
+        <a href="#abstract">Abstract</a>
+        <a href="#generation">Generation</a>
+        <a href="#editing">Editing</a>
+        <a href="#recam">Re-Cam</a>
+        <a href="#performance">Performance</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero container">
+    <h1 class="title">YourProject</h1>
+    <p class="subtitle">Unified Understanding, Generation, and Editing for Visual Content</p>
+
+    <div class="authors">
+      <span class="author">Author A<sup>1</sup></span>
+      <span class="author">Author B<sup>2</sup></span>
+      <span class="author">Author C<sup>1,2</sup></span>
+    </div>
+    <div class="affiliations">
+      <span><sup>1</sup>University / Lab</span>
+      <span><sup>2</sup>Company / Institute</span>
+    </div>
+
+    <!-- Icon buttons -->
+    <div class="icon-row" id="resourceButtons">
+      <!-- filled by JS from data.js -->
+    </div>
+
+    <!-- Teaser video -->
+    <div class="teaser card">
+      <div class="card-header">
+        <div class="card-title">Video Demo</div>
+        <div class="card-subtitle">We recommend watching with sound on.</div>
+      </div>
+      <div class="card-body">
+        <video class="teaser-video" controls playsinline preload="metadata" poster="assets/img/teaser_poster.jpg">
+          <source src="assets/vid/teaser.mp4" type="video/mp4" />
+        </video>
+      </div>
+    </div>
+  </section>
+
+  <!-- Abstract + Framework figure (two-column like Omni-Video2) -->
+  <section id="abstract" class="container section">
+    <div class="section-head">
+      <h2>Abstract</h2>
+    </div>
+
+    <div class="two-col">
+      <div class="col text">
+        <p>
+          Write your abstract here. Keep it tight: problem → gap → method → key results → why it matters.
+          This layout mirrors the common “text left, framework right” academic project-page pattern. 
+        </p>
+        <p>
+          You can add a short “Contributions” bullet list here if you like.
+        </p>
+        <ul class="bullets">
+          <li>Unified generation and editing under one framework.</li>
+          <li>Strong instruction following + context preservation.</li>
+          <li>Competitive performance across tasks.</li>
+        </ul>
+      </div>
+
+      <div class="col figure">
+        <figure class="figure-card">
+          <img src="assets/img/framework.png" alt="Framework figure" />
+          <figcaption>Figure 1. Framework overview of YourProject.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- Generation -->
+  <section id="generation" class="container section">
+    <div class="section-head">
+      <h2>Generation</h2>
+      <p class="muted">Hover on images/videos to see the prompt. (Mobile: tap the ⓘ button.)</p>
+    </div>
+
+    <div class="tabs" data-tabs="generation">
+      <button class="tab active" data-tab="gen-img">Instruct Image Generation</button>
+      <button class="tab" data-tab="gen-vid">Instruct Video Generation</button>
+      <button class="tab" data-tab="gen-ctx">In-Context Generation</button>
+    </div>
+
+    <div class="tabpanes">
+      <div class="tabpane active" id="gen-img">
+        <div class="grid" id="genImageGrid"></div>
+      </div>
+
+      <div class="tabpane" id="gen-vid">
+        <div class="grid" id="genVideoGrid"></div>
+      </div>
+
+      <div class="tabpane" id="gen-ctx">
+        <div class="stack" id="inContextGenStack"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Editing -->
+  <section id="editing" class="container section">
+    <div class="section-head">
+      <h2>Editing</h2>
+      <p class="muted">Image editing supports a drag-to-compare slider. Video editing shows Source vs Edited.</p>
+    </div>
+
+    <div class="tabs" data-tabs="editing">
+      <button class="tab active" data-tab="edit-img">Instruct Image Editing</button>
+      <button class="tab" data-tab="edit-vid">Instruct Video Editing</button>
+      <button class="tab" data-tab="edit-ctx">In-Context Editing</button>
+    </div>
+
+    <div class="tabpanes">
+      <!-- Image editing: before/after slider + hover prompt -->
+      <div class="tabpane active" id="edit-img">
+        <div class="grid" id="imageEditGrid"></div>
+      </div>
+
+      <!-- Video editing: task filters + blocks with hover border highlight -->
+      <div class="tabpane" id="edit-vid">
+        <div class="filters" id="videoEditFilters"></div>
+        <div class="stack" id="videoEditStack"></div>
+      </div>
+
+      <!-- In-context editing: like UniVideo style -->
+      <div class="tabpane" id="edit-ctx">
+        <div class="stack" id="inContextEditStack"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Video conditioned re-cam -->
+  <section id="recam" class="container section">
+    <div class="section-head">
+      <h2>Video-Conditioned Re-Cam</h2>
+      <p class="muted">Left: reference camera-motion video. Right: original video (top) and re-cammed result (bottom).</p>
+    </div>
+    <div class="stack" id="recamStack"></div>
+  </section>
+
+  <!-- Performance comparison -->
+  <section id="performance" class="container section">
+    <div class="section-head">
+      <h2>Performance Comparison</h2>
+      <p class="muted">Replace the placeholder table with your benchmark numbers.</p>
+    </div>
+    <div class="table-wrap">
+      <table class="perf-table" id="perfTable">
+        <thead>
+          <tr>
+            <th>Method</th>
+            <th>Metric A ↑</th>
+            <th>Metric B ↑</th>
+            <th>Metric C ↑</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>YourProject</td>
+            <td>—</td><td>—</td><td>—</td>
+          </tr>
+          <tr>
+            <td>Baseline 1</td>
+            <td>—</td><td>—</td><td>—</td>
+          </tr>
+          <tr>
+            <td>Baseline 2</td>
+            <td>—</td><td>—</td><td>—</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <footer class="footer container">
+    <div class="footer-inner">
+      <div class="muted">© <span id="year"></span> YourProject. Built with vanilla HTML/CSS/JS for GitHub Pages.</div>
+    </div>
+  </footer>
+
+  <!-- Prompt tooltip -->
+  <div class="prompt-tooltip" id="promptTooltip" aria-hidden="true">
+    <div class="prompt-tooltip-inner">
+      <div class="prompt-tooltip-title">Prompt</div>
+      <div class="prompt-tooltip-text" id="promptTooltipText"></div>
+      <button class="prompt-tooltip-close" id="promptTooltipClose" title="Close">×</button>
+    </div>
+  </div>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
