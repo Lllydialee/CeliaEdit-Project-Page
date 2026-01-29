@@ -23,35 +23,31 @@
   </header>
 
   <!-- Hero -->
-  <section class="hero container">
-    <h1 class="title">YourProject</h1>
-    <p class="subtitle">Unified Understanding, Generation, and Editing for Visual Content</p>
-
-    <div class="authors">
-      <span class="author">Author A<sup>1</sup></span>
-      <span class="author">Author B<sup>2</sup></span>
-      <span class="author">Author C<sup>1,2</sup></span>
+  <section class="hero hero-full">
+    <div class="hero-bg" aria-hidden="true">
+      <video class="hero-bg-video" autoplay muted loop playsinline preload="metadata" poster="assets/img/teaser_poster.jpg">
+        <source src="assets/vid/teaser.mp4" type="video/mp4" />
+      </video>
     </div>
-    <div class="affiliations">
-      <span><sup>1</sup>University / Lab</span>
-      <span><sup>2</sup>Company / Institute</span>
-    </div>
+    <div class="hero-overlay"></div>
 
-    <!-- Icon buttons -->
-    <div class="icon-row" id="resourceButtons">
-      <!-- filled by JS from data.js -->
-    </div>
+    <div class="hero-content container">
+      <h1 class="title">YourProject</h1>
+      <p class="subtitle">Unified Understanding, Generation, and Editing for Visual Content</p>
 
-    <!-- Teaser video -->
-    <div class="teaser card">
-      <div class="card-header">
-        <div class="card-title">Video Demo</div>
-        <div class="card-subtitle">We recommend watching with sound on.</div>
+      <div class="authors">
+        <span class="author">Author A<sup>1</sup></span>
+        <span class="author">Author B<sup>2</sup></span>
+        <span class="author">Author C<sup>1,2</sup></span>
       </div>
-      <div class="card-body">
-        <video class="teaser-video" controls playsinline preload="metadata" poster="assets/img/teaser_poster.jpg">
-          <source src="assets/vid/teaser.mp4" type="video/mp4" />
-        </video>
+      <div class="affiliations">
+        <span><sup>1</sup>University / Lab</span>
+        <span><sup>2</sup>Company / Institute</span>
+      </div>
+
+      <!-- Icon buttons -->
+      <div class="icon-row" id="resourceButtons">
+        <!-- filled by JS from data.js -->
       </div>
     </div>
   </section>
